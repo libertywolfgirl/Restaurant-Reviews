@@ -20,6 +20,10 @@ function checkHttps(request, response, next) {
 
 app.all("*", checkHttps);
 
+// Set route
+//app.use('/api/v1/restaurants', restaurants);
+app.use('*', (req, res) => res.status(404).json({error: 'not found'}));
+
 // A test route to make sure the server is up.
 app.get("/api/ping", (request, response) => {
   console.log("❇️ Received GET request to /api/ping");
@@ -47,3 +51,5 @@ if (process.env.NODE_ENV === "production") {
 const listener = app.listen(port, () => {
   console.log("❇️ Express server is running on port", listener.address().port);
 });
+
+module.exports = app;
