@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
-//const restaurants = require('./api/restaurants.route.js');
+const restaurants = require("./api/restaurants.route.js");
 
 const app = express();
 
@@ -21,8 +21,8 @@ function checkHttps(request, response, next) {
 app.all("*", checkHttps);
 
 // Set route
-//app.use('/api/v1/restaurants', restaurants);
-app.use('*', (req, res) => res.status(404).json({error: 'not found'}));
+//app.use("/api/v1/restaurants", restaurants);
+app.use("*", (req, res) => res.status(404).json({ error: "not found" }));
 
 // A test route to make sure the server is up.
 app.get("/api/ping", (request, response) => {
