@@ -1,7 +1,12 @@
 const express = require("express");
+const cors = require("cors");
 const path = require("path");
+//const restaurants = require('.././api/restaurants.route.js');
 
 const app = express();
+
+app.use(cors());
+app.use(express.json());
 
 // PWAs want HTTPS!
 function checkHttps(request, response, next) {
