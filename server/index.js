@@ -11,4 +11,4 @@ MongoClient.connect(process.env.RESTREVIEWS_DB_URI, {
 }).catch(err => {
   console.error(err.stack);
   process.exit(1);
-})
+});
