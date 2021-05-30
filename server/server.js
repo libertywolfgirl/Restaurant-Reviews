@@ -4,7 +4,7 @@ const path = require("path");
 const restaurants = require("./api/restaurants.route.js");
 const mongodb = require("mongodb");
 const dotenv = require("dotenv");
-const RestaurantsDAO = require('./api/dao/restaurantsDAO.js');
+const RestaurantsDAO = require("./api/dao/restaurantsDAO.js");
 dotenv.config();
 const MongoClient = mongodb.MongoClient;
 
@@ -61,14 +61,17 @@ MongoClient.connect(
     useNewUrlParse: true
   },
   console.log("Connected successfully to MongoDB server")
-).catch(err => {
-  console.error(err.stack);
-  process.exit(1);
-}).then(async client => {
-  app.listen(port, () => {
-    console.log(``)
+)
+  .catch(err => {
+    console.error(err.stack);
+    process.exit(1);
   })
-})
+  .then(async client => {
+    await RestaurantsDAO.injectDB(client);
+    app.listen(port, () => {
+      console.log(`listening on port ${port}`);
+    });
+  });
 
 // Start the listener!
 /*const listener = app.listen(port, () => {
