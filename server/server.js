@@ -52,7 +52,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Connect to MongoDB
-/*MongoClient.connect(
+MongoClient.connect(
   process.env.RESTREVIEWS_DB_URI,
   {
     poolSize: 50,
@@ -63,7 +63,7 @@ if (process.env.NODE_ENV === "production") {
 ).catch(err => {
   console.error(err.stack);
   process.exit(1);
-});*/
+});
 
 // Start the listener!
 const listener = app.listen(port, () => {
