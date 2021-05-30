@@ -4,6 +4,7 @@ const path = require("path");
 const restaurants = require("./api/restaurants.route.js");
 const mongodb = require("mongodb");
 const dotenv = require("dotenv");
+const RestaurantsDAO = require('./api/dao/restaurantsDAO.js');
 dotenv.config();
 const MongoClient = mongodb.MongoClient;
 
@@ -63,11 +64,15 @@ MongoClient.connect(
 ).catch(err => {
   console.error(err.stack);
   process.exit(1);
-});
+}).then(async client => {
+  app.listen(port, () => {
+    console.log(``)
+  })
+})
 
 // Start the listener!
-const listener = app.listen(port, () => {
+/*const listener = app.listen(port, () => {
   console.log("❇️ Express server is running on port", listener.address().port);
-});
+});*/
 
 module.exports = app;
