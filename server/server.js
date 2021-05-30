@@ -2,6 +2,10 @@ const express = require("express");
 const cors = require("cors");
 const path = require("path");
 const restaurants = require("./api/restaurants.route.js");
+const mongodb = require("mongodb");
+const dotenv = require("dotenv");
+dotenv.config();
+const MongoClient = mongodb.MongoClient;
 
 const app = express();
 
@@ -47,9 +51,27 @@ if (process.env.NODE_ENV === "production") {
   );
 }
 
-// Start the listener!
-const listener = app.listen(port, () => {
-  console.log("❇️ Express server is running on port", listener.address().port);
+// Connect to MongoDB
+MongoClient.connect(
+  process.env.RESTREVIEWS_DB_URI,
+  {
+    poolSize: 50,
+    wtimeout: 2500,
+    useNewUrlParse: true
+  },
+  console.log("Connected successfully to MongoDB server")
+).catch(err => {
+  console.error(err.stack);
+  process.exit(1);
+}).then(async client => {
+  app.listen(port, () => {
+    console.log(`❇️ Express server is running on port ${port}`);
+  });
 });
+
+// Start the listener!
+/*const listener = app.listen(port, () => {
+  console.log("❇️ Express server is running on port", listener.address().port);
+});*/
 
 module.exports = app;

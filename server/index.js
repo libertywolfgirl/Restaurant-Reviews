@@ -1,3 +1,4 @@
+/*
 const app = require("./server.js");
 const mongodb = require("mongodb");
 const dotenv = require("dotenv");
@@ -16,3 +17,4 @@ MongoClient.connect(
   console.error(err.stack);
   process.exit(1);
 });
+*/
