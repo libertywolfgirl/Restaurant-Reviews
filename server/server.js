@@ -25,7 +25,7 @@ function checkHttps(request, response, next) {
 app.all("*", checkHttps);
 
 // Set route
-//app.use("/api/v1/restaurants", restaurants);
+app.use("/api/v1/restaurants", restaurants);
 app.use("*", (req, res) => res.status(404).json({ error: "not found" }));
 
 // A test route to make sure the server is up.
@@ -63,15 +63,11 @@ MongoClient.connect(
 ).catch(err => {
   console.error(err.stack);
   process.exit(1);
-}).then(async client => {
-  app.listen(port, () => {
-    console.log(`❇️ Express server is running on port ${port}`);
-  });
 });
 
 // Start the listener!
-/*const listener = app.listen(port, () => {
+const listener = app.listen(port, () => {
   console.log("❇️ Express server is running on port", listener.address().port);
-});*/
+});
 
 module.exports = app;
