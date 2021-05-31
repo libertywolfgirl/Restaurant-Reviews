@@ -1,3 +1,6 @@
+let mongodb = require('mongodb');
+const ObjectId = require(mongodb.ObjectID);
+
 let restaurants;
 
 class RestaurantDAO {
