@@ -1,5 +1,4 @@
-let mongodb = require('mongodb');
-const ObjectId = require(mongodb.ObjectID);
+let mongodb = require("mongodb");
 
 let restaurants;
 
@@ -14,7 +13,7 @@ class RestaurantDAO {
         .collection("restaurants");
     } catch (e) {
       console.error(
-        `Unable to establish a collection handle in restaurantDAO: ${e}`
+        `Unable to establish a collection handle in restaurantsDAO: ${e}`
       );
     }
   }
@@ -55,7 +54,7 @@ class RestaurantDAO {
       return { restaurantsList, totalNumRestaurants };
     } catch (e) {
       console.error(
-        `Unable to convert cursor to array or problem counting documents, `
+        `Unable to convert cursor to array or problem counting documents, ${e}`
       );
       return { restaurantsList: [], totalNumRestaurants: 0 };
     }
