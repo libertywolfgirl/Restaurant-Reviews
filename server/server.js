@@ -4,7 +4,7 @@ const path = require("path");
 const restaurants = require("./api/restaurants.route.js");
 const mongodb = require("mongodb");
 const dotenv = require("dotenv");
-const RestaurantsDAO = require("./api/dao/restaurantsDAO.js");
+const RestaurantsDAO = require("./dao/restaurantsDAO.js");
 dotenv.config();
 const MongoClient = mongodb.MongoClient;
 
