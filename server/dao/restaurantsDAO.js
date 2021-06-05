@@ -10,7 +10,7 @@ class RestaurantDAO {
     try {
       restaurants = await conn
         .db(process.env.RESTREVIEWS_NS)
-        .collection("restaurants");
+        .collection("sample_restaurants");
     } catch (e) {
       console.error(
         `Unable to establish a collection handle in restaurantsDAO: ${e}`
@@ -50,7 +50,6 @@ class RestaurantDAO {
     try {
       const restaurantsList = await displayCursor.toArray();
       const totalNumRestaurants = await restaurants.countDocuments(query);
-
       return { restaurantsList, totalNumRestaurants };
     } catch (e) {
       console.error(
