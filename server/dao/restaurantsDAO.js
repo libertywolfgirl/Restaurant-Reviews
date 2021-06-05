@@ -1,4 +1,4 @@
-let mongodb = require("mongodb");
+const mongodb = require("mongodb");
 
 let restaurants;
 
@@ -9,7 +9,7 @@ class RestaurantsDAO {
     }
     try {
       restaurants = await conn
-        .getDB('sample_restaurants')
+        .db("sample_restaurants")
         .collection("restaurants");
     } catch (e) {
       console.error(
