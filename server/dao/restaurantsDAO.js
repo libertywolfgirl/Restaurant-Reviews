@@ -9,7 +9,7 @@ class RestaurantsDAO {
     }
     try {
       restaurants = await conn
-        .db(process.env.RESTREVIEWS_NS)
+        .getDB('sample_restaurants')
         .collection("restaurants");
     } catch (e) {
       console.error(
