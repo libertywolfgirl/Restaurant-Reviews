@@ -2,7 +2,7 @@ let mongodb = require("mongodb");
 
 let restaurants;
 
-class RestaurantDAO {
+class RestaurantsDAO {
   static async injectDB(conn) {
     if (restaurants) {
       return;
@@ -10,7 +10,7 @@ class RestaurantDAO {
     try {
       restaurants = await conn
         .db(process.env.RESTREVIEWS_NS)
-        .collection("sample_restaurants");
+        .collection("restaurants");
     } catch (e) {
       console.error(
         `Unable to establish a collection handle in restaurantsDAO: ${e}`
@@ -60,4 +60,4 @@ class RestaurantDAO {
   }
 }
 
-module.exports = RestaurantDAO;
+module.exports = RestaurantsDAO;
