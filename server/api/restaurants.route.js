@@ -1,11 +1,17 @@
 const express = require("express");
-const RestaurantsCtrl = require('./restaurants.controller.js')
-const ReviewsCtrl = require('./reviews.controller.js')
+const RestaurantsCtrl = require("./restaurants.controller.js");
+const ReviewsCtrl = require("./reviews.controller.js");
 
 const router = express.Router();
 
 router.route("/").get(RestaurantsCtrl.apiGetRestaurants);
+router.route("/id/:id").get(RestaurantsCtrl.apigetRestaurantById);
+router.route("/cuisines").get(RestaurantsCtrl.apiGetRestaurantsCuisines);
 
-router.route('/review').post(ReviewsCtrl.apiPostReview).put(ReviewsCtrl.apiUpdateReview).delte(ReviewsCtrl.apiDeleteReview);
+router
+  .route("/review")
+  .post(ReviewsCtrl.apiPostReview)
+  .put(ReviewsCtrl.apiUpdateReview)
+  .delete(ReviewsCtrl.apiDeleteReview);
 
 module.exports = router;
