@@ -1,4 +1,5 @@
 dependencies:
+  axios: 0.21.1
   bootstrap: 5.0.1
   concurrently: 6.2.0
   cors: 2.8.5
@@ -3562,6 +3563,12 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha512-OKRkKM4ojMEZRJ5UNJHmq9tht7cEnRnqKG6KyB/trYws00Xtkv12mHtlJ0SK7cmuNbrU8dPUova3ELTuilfBbw==
+  /axios/0.21.1:
+    dependencies:
+      follow-redirects: 1.14.1
+    dev: false
+    resolution:
+      integrity: sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
   /axobject-query/2.2.0:
     dev: false
     resolution:
@@ -13137,6 +13144,7 @@ registry: 'https://registry.npmjs.org/'
 shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
+  axios: ^0.21.1
   bootstrap: ^5.0.1
   concurrently: ^6.2.0
   cors: ^2.8.5
