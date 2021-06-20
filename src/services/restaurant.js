@@ -2,7 +2,7 @@ import http from "../http-common";
 
 class RestaurantDataService {
   getAll(page = 0) {
-    return http.get(`?page=${page}`);
+    return http.get(`restaurants?page=${page}`);
   }
 
   get(id) {
@@ -10,7 +10,7 @@ class RestaurantDataService {
   }
 
   find(query, by = "name", page = 0) {
-    return http.get(`?${by}=${query}&page=${page}`);
+    return http.get(`restaurants?${by}=${query}&page=${page}`);
   }
 
   createReview(data) {
@@ -22,7 +22,7 @@ class RestaurantDataService {
   }
 
   deleteReview(id, userId) {
-    return http.delete(`/review?id=${id}`, {data:{user_id: userId}});
+    return http.delete(`/review?id=${id}`, { data: { user_id: userId } });
   }
 
   getCuisines(id) {
